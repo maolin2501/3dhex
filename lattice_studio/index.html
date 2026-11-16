@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lattice Studio · 曲面晶格设计</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="importmap">{"imports":{"three":"/vendor/build/three.module.js","three/addons/":"/vendor/examples/jsm/"}}</script>
+</head>
+<body>
+<header>
+  <div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 29 9.5v13L16 30 3 22.5v-13Z M3 9.5l13 8 13-8M16 17.5V30M16 2v15.5"/></svg><span>Lattice<span class="brand-light">Studio</span></span><span class="version">LOCAL / 01</span></div>
+  <div class="header-title">曲面晶格设计工作台</div>
+  <button id="openImport" class="primary">＋ 导入 STEP</button>
+</header>
+<main>
+<aside class="left-panel">
+  <div class="section-head"><span class="step">01</span><h2>模型与面选择</h2></div>
+  <div class="file-card"><span class="file-icon">▱</span><div><strong id="filename">未载入模型</strong><small id="modelSize">STEP · 毫米</small></div></div>
+  <label for="bodySelect">当前实体</label><select id="bodySelect" disabled></select>
+  <div id="sourceWarning" class="notice" hidden></div>
+  <div class="divider"></div>
+  <div class="label-row"><h3>选择工具</h3><span>点击曲面可多选</span></div>
+  <div class="role-switch">
+    <button id="roleDesign" class="active" aria-pressed="true"><i class="dot teal"></i>设计面</button>
+    <button id="rolePreserve" aria-pressed="false"><i class="dot amber"></i>保留面</button>
+  </div>
+  <p class="hint" id="roleHint">绿色面沿原曲面排孔；默认未选面也开孔。橙色保留面保持实心，若保留内侧面则不会内外贯通。</p>
+  <div class="selection-summary"><span>设计 <b id="designCount">0</b></span><span>保留 <b id="preserveCount">0</b></span><button id="clearFaces" class="text-button">清空</button></div>
+  <input type="search" id="faceSearch" placeholder="搜索面编号 / 曲面类型" aria-label="搜索曲面">
+  <div id="faceList" class="face-list"><p class="empty">导入 STEP 后，曲面将在这里列出</p></div>
+  <div class="left-footer"><span class="status-dot"></span>本地计算 · 文件不上传云端<br><button id="shutdown" class="text-button">关闭软件服务</button></div>
+</aside>
+<section class="workspace">
+  <div class="workspace-top"><div><span class="eyebrow">3D WORKSPACE</span><h1 id="viewTitle">查看与选择曲面</h1></div><div class="view-switch" aria-label="显示模式"><button data-view="source" class="active">原模型</button><button data-view="result" disabled>晶格</button><button data-view="overlay" disabled>叠加</button></div></div>
+  <div id="viewport" aria-label="三维模型视图，拖动旋转，滚轮缩放，点击选择曲面"><div id="viewEmpty">正在初始化三维视图…</div></div>
+  <div class="viewport-tools"><button id="fitView" title="适应窗口">适应</button><button id="frontView" title="沿 Y 轴正视">正视</button><button id="isoView" title="等轴测视图">等轴测</button><button id="wireToggle" aria-pressed="false">线框</button></div>
+  <div class="view-caption"><span><i class="dot teal"></i>设计区域</span><span><i class="dot amber"></i>保留外观面</span><span id="viewMeshInfo">—</span></div>
+  <div class="clipbar"><label class="check"><input id="clipEnabled" type="checkbox">剖切检查</label><select id="clipAxis" aria-label="剖切轴向"><option value="z">Z</option><option value="y">Y</option><option value="x">X</option></select><input id="clipPosition" aria-label="剖切位置" type="range" min="0" max="100" value="50"><span id="clipValue">50%</span><small>仅影响显示</small></div>
+  <div class="metrics"><div><span>当前晶格</span><strong id="metricType">Kelvin 立体蜂窝</strong></div><div><span>单元 / 线径</span><strong id="metricSize">4 / 0.6 <small>mm</small></strong></div><div><span id="densityLabel">相对密度</span><strong id="metricDensity">—</strong></div><div><span>完整网格面数</span><strong id="metricFaces">—</strong></div></div>
+  <div class="job-panel"><div class="job-line"><span id="jobTitle">准备就绪</span><span id="jobPercent">0%</span></div><div class="progress-track"><div id="jobProgress"></div></div><div id="memoryStatus" class="hint"></div><div id="messages" role="status" aria-live="polite">选择模型、设置参数，然后生成预览。</div></div>
+</section>
+<aside class="right-panel">
+  <div class="section-head"><span class="step">02</span><h2>晶格参数</h2><span class="units">mm</span></div>
+  <button id="referencePreset">应用右肩参考件风格</button><p class="hint">使用跨面定向孔列与顶点专用连接，取消孔边中部连杆。保留当前实体和面选择，不自动启动生成。</p>
+  <label for="surfaceMode">外观面处理</label><select id="surfaceMode"><option value="perforated">原曲面开孔 + 内部晶格</option><option value="volume">仅体积晶格 · 无开孔面层</option></select>
+  <div id="surfaceFields"><div class="field-row"><div><label for="surfacePattern">曲面孔型</label><select id="surfacePattern"><option value="hex">六边形孔</option><option value="square">方形孔</option><option value="circle">圆形孔</option></select></div><div><label for="surfaceThickness">开孔面层厚度</label><div class="number-unit"><input id="surfaceThickness" type="number" min="0.1" max="50" step="0.1" value="0.8"><span>mm</span></div></div></div>
+    <div class="field-row"><div><label for="surfaceCell" id="surfaceCellLabel">曲面孔中心距</label><div class="number-unit"><input id="surfaceCell" type="number" min="0" max="100" step="0.1" value="0"><span>mm</span></div></div><div><label for="surfaceWidth">曲面孔间筋宽</label><div class="number-unit"><input id="surfaceWidth" type="number" min="0" max="50" step="0.1" value="0"><span>mm</span></div></div></div>
+    <p class="hint">孔距、筋宽为 0 时跟随内部单元、杆径；非零时独立控制。面层向内生成，不向外包网。内外贯通需取消内侧面的橙色保留标记。</p><p class="hint" id="patternModeHint">自适应模式不使用上方固定孔型；孔距表示等面积目标尺度，各孔的边数、方向和实际间距可以变化。</p>
+    <details><summary>孔角、连接与边缘</summary><div class="field-row"><div><label for="poreRounding">孔角圆滑半径</label><div class="number-unit"><input id="poreRounding" type="number" min="0" max="10" step="0.05" value="0"><span>mm</span></div></div><div><label for="junctionBlend">连接圆滑半径</label><div class="number-unit"><input id="junctionBlend" type="number" min="0" max="5" step="0.05" value="0"><span>mm</span></div></div></div><label for="edgeWidth">边缘实边宽度</label><div class="number-unit"><input id="edgeWidth" type="number" min="0" max="20" step="0.1" value="0"><span>mm</span></div><p class="hint">实边沿设计/保留分界和 CAD 锐边向实体内形成，不封满整张曲面。圆滑会局部增加材料，最终尺寸受采样影响。</p></details>
+  </div>
+  <label for="surfaceContinuity">曲面连续连接</label><select id="surfaceContinuity"><option value="auto">自动 · BCC 杆端转接</option><option value="off">关闭 · 原始深度截断（对照）</option></select>
+  <label for="seamStyle">面间过渡</label><select id="seamStyle"><option value="atlas">曲面分区铺网 · 顶点内接（推荐）</option><option value="vertex">轴向孔列 · 顶点内接（旧版）</option><option value="aligned">直杆接孔边（旧版）</option><option value="adaptive">无方向不规则孔网（旧版）</option><option value="stitch">固定孔型 + 局部内接（旧版）</option><option value="rail">固定孔型 + 接缝筋（旧版）</option></select><p class="hint">分区铺网/顶点模式仅支持 BCC + 自动连接。先移除旧外层杆，再从多边形顶点向内连接；不添加分界直筋，不回退到边中部落点。曲率变化处允许过渡多边形，保留面与原曲面裁切不变，重新生成后生效。</p>
+  <label for="latticeType">内部晶格结构</label>
+  <select id="latticeType"><optgroup label="开放杆网 · 线径可调"><option value="kelvin">Kelvin 立体蜂窝</option><option value="hex3d">六棱柱蜂窝杆网</option><option value="bcc" selected>BCC 体心斜杆</option><option value="cubic">Cubic 立方边杆</option></optgroup><optgroup label="壁板结构 · 壁厚可调"><option value="hex">贯通六边形蜂窝</option><option value="hexcell">分层六边形蜂窝腔</option><option value="grid">立方壁板</option></optgroup><optgroup label="曲面晶格 · 近似壁厚"><option value="gyroid">Gyroid 曲面</option><option value="diamond">Diamond 曲面</option><option value="schwarz">Schwarz-P 曲面</option><option value="iwp">I-WP 曲面</option></optgroup></select>
+  <div class="structure-card"><svg id="structureIcon" viewBox="0 0 80 70" aria-hidden="true"></svg><p id="structureDesc">空间连通的截角八面体杆网。具有六边形与四边形孔面，不是六棱柱挤出。</p></div>
+  <div class="field-row"><div><label for="cell">单元大小</label><div class="number-unit"><input id="cell" type="number" min="0.2" max="100" step="0.5" value="4"><span>mm</span></div></div><div><label id="wallLabel" for="wall">连杆线径</label><div class="number-unit"><input id="wall" type="number" min="0.05" max="50" step="0.1" value="0.6"><span>mm</span></div></div></div>
+  <p class="hint" id="cellHint">单元大小为三轴方向的立方重复周期。</p>
+  <div class="field-row"><div><label for="axis">结构轴向</label><select id="axis"><option value="z">Z · 高度方向</option><option value="y">Y · 前后方向</option><option value="x">X · 左右方向</option></select></div><div id="layerField" hidden><label for="layer">蜂窝层高</label><div class="number-unit"><input id="layer" type="number" value="4" min="0.2" max="100" step="0.5"><span>mm</span></div></div></div>
+  <div class="divider"></div>
+  <h3>设计范围</h3><select id="scope" aria-label="设计范围"><option value="body">整个当前实体</option><option value="faces">按所选面设计</option></select>
+  <div id="unselectedField" hidden><label for="unselected">未选区域处理</label><select id="unselected"><option value="perforate">沿原曲面开孔 · 晶格连续</option><option value="solid">保持实心 · 仅局部晶格化</option></select></div>
+  <div id="depthField" hidden><label for="depth">从设计面向内的深度</label><div class="number-unit"><input id="depth" type="number" min="0.1" max="500" step="0.5" value="6"><span>mm</span></div></div>
+  <p class="hint" id="scopeHint">同一晶格按原实体内外曲面裁切，孔洞贯穿至表面；只在橙色保留面添加实心层。</p>
+  <label for="shell">保留面的默认实心厚度</label><div class="number-unit"><input id="shell" type="number" min="0" max="50" step="0.1" value="0"><span>mm</span></div><p class="hint">未单独设置的橙色保留面使用此厚度，且不开孔。与上方的“开孔面层厚度”相互独立。</p>
+  <details open><summary>单独设置保留面厚度</summary>
+   <label for="preserveFace">保留面</label><select id="preserveFace" disabled></select>
+   <label for="faceShell">该面的实心厚度</label><div class="number-unit"><input id="faceShell" type="number" min="0.1" max="50" step="0.1" disabled><span>mm</span></div>
+   <div class="field-row"><button id="applyFaceShell" type="button" disabled>应用到该面</button><button id="resetFaceShell" type="button" disabled>恢复默认厚度</button></div>
+   <p class="hint" id="faceShellSummary">未单独设置，所有保留面使用默认厚度。</p>
+   <p class="hint">厚度向实体内部延伸，并受原实体厚度限制；不会向外扩张原始外观。</p>
+  </details>
+  <div class="divider"></div>
+  <details open><summary>采样与表面质量</summary><div class="field-row"><div><label for="pitch">采样间距</label><div class="number-unit"><input id="pitch" type="number" min="0.05" max="5" step="0.05" value="0.2"><span>mm</span></div></div><div><label for="smooth">网格平滑</label><select id="smooth"><option value="0">关闭</option><option value="2" selected>轻度 · 2 次</option><option value="6">中度 · 6 次</option><option value="12">较强 · 12 次</option></select></div></div><p class="hint">线径是设计值；采样和平滑会改变实际尺寸。建议每个线径至少 3 个采样点。</p><div id="estimate" class="estimate">生成前将检查计算规模</div></details>
+  <label for="memoryMode">内存策略</label><select id="memoryMode"><option value="auto">自动 · 大模型低内存分块</option><option value="chunked">始终低内存分块</option></select><p class="hint">超过 800 万点自动分块，中间场写入临时磁盘文件；不改变设定采样间距。曲面布尔及导出仍需内存，完成或停止后清理临时文件。</p>
+  <p class="hint" id="sampleLimits">正在读取采样数量上限…</p>
+  <button id="repairDisplay" disabled>修复旧结果显示（不重新填充）</button>
+  <div class="actions"><button id="preview" class="primary" disabled>生成快速预览</button><div class="button-row"><button id="generate" disabled>按设定精度生成</button><button id="cancel" class="danger" disabled>停止</button></div><a id="download" class="button disabled" aria-disabled="true">↓ 导出 STL</a><a id="saveDesign" class="text-button disabled" aria-disabled="true">下载本次设计参数</a><small id="exportHint">STL 导出完整网格；视图可能使用减面副本。</small></div>
+</aside>
+</main>
+<dialog id="importDialog"><form method="dialog"><button class="close" aria-label="关闭">×</button></form><span class="eyebrow">IMPORT GEOMETRY</span><h2>导入你的 STEP 模型</h2><p>按原始 CAD 面进行选择，保留实体与面编号。所有计算均在本机完成。</p><label id="dropzone" for="fileInput"><strong>选择文件，或拖放到这里</strong><span>.step / .stp · 最大 200 MB</span></label><input id="fileInput" type="file" accept=".step,.stp" hidden><div class="or">或使用本机文件路径</div><input id="filePath" aria-label="STEP 文件路径" placeholder="输入本机 STEP 文件的完整路径"><div class="dialog-actions"><button id="demo">载入示例曲壳</button><button id="loadPath" class="primary">载入文件</button></div></dialog>
+<script type="module" src="/app.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+{
+  "triangles": 20406868,
+  "bytes": 1020343484,
+  "all_triangles_match_validated_indexed_mesh": true,
+  "finite_coordinates_and_normals": true,
+  "zero_area_triangles": 0,
+  "repeated_vertex_triangles": 0,
+  "min_double_area_mm2": 7.275957614183426e-12,
+  "elapsed_seconds": 3.8457083702087402
+}

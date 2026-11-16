@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {cleanThicknesses,setThickness} from '../lattice_studio/preserve-settings.mjs';
+const retained=new Set([0,6,7,13,14]);
+let values={};
+for(const id of [0,6,7,13])values=setThickness(values,retained,id,3);
+assert.deepEqual(values,{'0':3,'6':3,'7':3,'13':3});
+assert.equal(values['14'],undefined);
+const restored=cleanThicknesses(JSON.parse(JSON.stringify(values)),retained);
+assert.deepEqual(restored,values);
+retained.delete(6);
+assert.deepEqual(cleanThicknesses(values,retained),{'0':3,'7':3,'13':3});
+assert.deepEqual(cleanThicknesses(undefined,retained),{});
+assert.throws(()=>setThickness(values,retained,6,3));
+for(const value of [NaN,Infinity,0,-1,51,''])assert.throws(()=>setThickness(values,retained,0,value));
+assert.deepEqual(cleanThicknesses({'00':3,'0':3,'14':null},retained),{'0':3});
+console.log('per-face UI state tests passed');

@@ -1,0 +1,16 @@
+{
+  "reduced_to_original": {
+    "samples": 60000,
+    "max_mm": 7.410289356386036e-05,
+    "p99_mm": 3.962732191992706e-06,
+    "mean_mm": 1.6206156185900195e-07
+  },
+  "original_to_reduced": {
+    "samples": 60000,
+    "max_mm": 8.77564448182278e-05,
+    "p99_mm": 2.0081092469955937e-05,
+    "mean_mm": 8.930681888899025e-07
+  },
+  "elapsed_seconds": 9.832085371017456,
+  "note": "Independent bidirectional random triangle-surface sampling; not an exhaustive Hausdorff bound."
+}

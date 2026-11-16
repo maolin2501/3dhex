@@ -1,0 +1,400 @@
+{
+  "source": "waist_bilateral_dense_wave_20261113\\bilateral_dense_wave_20mm.step",
+  "source_bounds": [
+    [
+      -70.0,
+      -80.11004903532425,
+      1230.228392205
+    ],
+    [
+      70.000001880659,
+      80.11004903532688,
+      1297.2770802830473
+    ]
+  ],
+  "source_volume_mm3": 327018.4977145455,
+  "source_faces": 145,
+  "preserved_face_ids": [],
+  "preserved_face_count": 0,
+  "preserved_thickness_mm": 0.0,
+  "ribs": [
+    {
+      "side": "left",
+      "center_y_mm": -52.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": -45.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": -39.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": -32.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": -26.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": -19.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": -13.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": -6.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 0.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 6.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 13.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 19.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 26.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 32.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 39.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 45.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "left",
+      "center_y_mm": 52.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -52.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -45.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -39.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -32.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -26.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -19.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -13.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -6.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": -0.65,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": true
+    },
+    {
+      "side": "right",
+      "center_y_mm": 0.65,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": true
+    },
+    {
+      "side": "right",
+      "center_y_mm": 6.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": 13.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": 19.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": 26.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": 32.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": 39.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": 45.5,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    },
+    {
+      "side": "right",
+      "center_y_mm": 52.0,
+      "nominal_thickness_mm": 0.8,
+      "starts_at_abs_x_mm": 7.5,
+      "source_clipped": true,
+      "radial_slit_split": false
+    }
+  ],
+  "rib_count": 35,
+  "config": {
+    "lattice": "bcc",
+    "cell": 6.0,
+    "wall": 1.0,
+    "axis": "z",
+    "layer": 6.0,
+    "scope": "body",
+    "unselected": "perforate",
+    "surface_mode": "perforated",
+    "surface_pattern": "hex",
+    "surface_thickness": 0.8,
+    "surface_cell": 0.0,
+    "surface_width": 0.0,
+    "pore_rounding": 0.0,
+    "junction_blend": 0.0,
+    "edge_width": 0.0,
+    "surface_continuity": "auto",
+    "seam_style": "atlas",
+    "depth": 6.0,
+    "shell": 0.0,
+    "pitch": 0.2,
+    "smooth": 2,
+    "memory_mode": "chunked",
+    "quality": "final",
+    "design_faces": [],
+    "preserve_faces": [],
+    "preserve_thicknesses": {}
+  },
+  "note": "User confirmed 6 mm cells and 1.0 mm struts, with no solid tooth-sidewall preservation; existing 0.8 mm ribs and original gaps retained.",
+  "wave_face_ids": [
+    25,
+    26,
+    28,
+    29,
+    31,
+    32,
+    34,
+    35,
+    37,
+    38,
+    40,
+    41,
+    43,
+    44,
+    46,
+    47,
+    53,
+    54,
+    56,
+    57,
+    59,
+    60,
+    62,
+    63,
+    65,
+    66,
+    68,
+    69,
+    71,
+    72,
+    74,
+    75,
+    77,
+    78,
+    80,
+    81,
+    83,
+    84,
+    86,
+    87,
+    89,
+    90,
+    92,
+    93,
+    95,
+    96,
+    98,
+    99,
+    105,
+    106,
+    108,
+    109,
+    111,
+    112,
+    114,
+    115,
+    117,
+    118,
+    120,
+    121,
+    123,
+    124,
+    126,
+    127
+  ],
+  "revision_of": "waist_bilateral_lattice_ribs_20261113",
+  "source_mesh_sha256": "c3ec1aebf8482956e91a586917fac83f011d91828acbc0930efc242536a1d0a4"
+}

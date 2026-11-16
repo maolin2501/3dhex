@@ -1,0 +1,13 @@
+{
+  "format": "3MF Core",
+  "units": "millimeter",
+  "vertices": 8711824,
+  "triangles": 17462384,
+  "bytes": 259271937,
+  "indexed_topology_preserved": true,
+  "coordinate_precision": "9 significant decimal digits (lossless float32 roundtrip)",
+  "crc_and_payload_sha256_verified": true,
+  "xml_well_formed": true,
+  "model_xml_sha256": "dd7ef11aff0a7f069c1b1bbe8e400ccaa590dec7d54ce061094e599f34adb2ce",
+  "elapsed_seconds": 54.52137613296509
+}

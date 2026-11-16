@@ -1,0 +1,7 @@
+{
+  "name": "lattice-studio-viewer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Offline local 3D lattice design viewer",
+  "dependencies": {"three": "0.180.0"}
+}

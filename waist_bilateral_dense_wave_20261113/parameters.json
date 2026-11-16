@@ -1,0 +1,46 @@
+{
+  "depth_mm": 20.0,
+  "pitch_mm": 6.5,
+  "waves_per_side": 16,
+  "total_waves": 32,
+  "active_y_range_mm": [
+    -52,
+    52
+  ],
+  "original_straight_slot_width_mm": 15.0,
+  "root_abs_x_mm": 7.5,
+  "valley_abs_x_mm": 27.5,
+  "side": "both, mirrored",
+  "operation": "remove material only; retain full original voids",
+  "profile": "Two cubic Bezier segments per period, tangent and curvature continuous",
+  "original_coordinates_preserved": true,
+  "stats": {
+    "native_valid": true,
+    "solid_count": 1,
+    "mesh_watertight": true,
+    "winding_consistent": true,
+    "mesh_volume_mm3": 327186.47120293014,
+    "vertices": 102746,
+    "triangles": 205488,
+    "bounds_mm": [
+      [
+        -70.0,
+        -80.10660350057063,
+        1230.2283922047195
+      ],
+      [
+        70.0000018806587,
+        80.10660350057057,
+        1297.2778138579351
+      ]
+    ],
+    "step_roundtrip_valid": true,
+    "step_roundtrip_solids": 1,
+    "native_volume_mm3": 327543.23689871037,
+    "step_native_volume_mm3": 327541.44971680007,
+    "step_mesh_volume_mm3": 327116.35679656855,
+    "step_mesh_watertight": true,
+    "step_mesh_winding_consistent": true,
+    "step_stl_relative_volume_difference": 0.00021434087566950233
+  }
+}

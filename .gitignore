@@ -1,0 +1,33 @@
+# Environments, dependencies and local runtime data
+.venv/
+.lattice-env/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.lattice-studio/
+.env
+.env.*
+!.env.example
+*.log
+status.json
+pretrim/
+scratch-lowmem-*/
+build/
+dist/
+
+# Generated meshes and intermediate fields are distributed through Releases.
+*.stl
+*.3mf
+*.ply
+*.obj
+*.glb
+*.npz
+*.npy
+*.zip
+*.partial
+tool_*.brep
+bilateral_dense_wave_20mm.brep
+
+# Local postprocess checkpoints
+trimmed/

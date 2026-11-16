@@ -1,0 +1,14 @@
+{
+  "open_wave_lattice.3mf": {
+    "bytes": 259271937,
+    "sha256": "1a968d179748571b024f7708ec5cad47d4c5415a25f4b170e6d52ae0e8c3a334"
+  },
+  "open_wave_lattice_stl.zip": {
+    "bytes": 352235875,
+    "sha256": "0cf8b306455ee7ed9c051d13003d1245ef5f8901c1b151f8350423285017915e"
+  },
+  "stl_uncompressed": {
+    "bytes": 873119284,
+    "sha256": "076ffd5c8df8662ebd8ec922501bfcc0b2bdb93c69f7b0124e3df0129c325e43"
+  }
+}

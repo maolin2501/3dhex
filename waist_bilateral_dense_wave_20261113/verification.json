@@ -1,0 +1,60 @@
+{
+  "step_valid": true,
+  "solid_count": 1,
+  "material_added_to_original_mm3": 0.0,
+  "removed_from_outer_frame_mm3": 0.0,
+  "measured_sides": {
+    "left": {
+      "valley_x_mm": [
+        -27.500000765241566,
+        -27.500000718879164,
+        -27.500000668587745,
+        -27.500000643442036,
+        -27.500000594722223,
+        -27.500000549145625
+      ],
+      "tip_x_mm": [
+        -7.500000099957106,
+        -7.500000099957106,
+        -7.500000099957106,
+        -7.500000099957106,
+        -7.500000473213731,
+        -7.500000429994543
+      ],
+      "depth_mm": 20.000000439496944
+    },
+    "right": {
+      "valley_x_mm": [
+        27.500000215964974,
+        27.500000189247658,
+        27.500000165673555,
+        27.500000154672307,
+        27.50000013659883,
+        27.500000121668563
+      ],
+      "tip_x_mm": [
+        7.500000484214979,
+        7.50000043392356,
+        7.500000409563654,
+        7.500000364772859,
+        7.5000003451277735,
+        7.5000003097666195
+      ],
+      "depth_mm": 19.99999977274274
+    }
+  },
+  "clear_straight_channel_width_mm": 15.0,
+  "clear_channel_checks": 123,
+  "right_radial_slit_preserved": true,
+  "printing_stl": {
+    "watertight": true,
+    "winding_consistent": true,
+    "connected_components": 1,
+    "z_min_mm": 0.0,
+    "triangles": 205488
+  },
+  "original_import_sha256": "4d5c901f685edd6f4af925467b2afb36636439f4c3cfc0ce8b1933928aa7d717",
+  "cached_source_brep_sha256": "b8e93bf77850abb573cd754900f87e75b0c0bacb77147963cfe790b484625299",
+  "external_source_hash_reverified": false,
+  "source_note": "Original temporary attachment path expired; geometric comparison uses the preserved original BREP import."
+}
